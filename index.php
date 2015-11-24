@@ -2,11 +2,12 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="index.css"/> <!--TODO-->
-        <title>Ceci est un blog</title>
+        <title>Ceci est un début de blog</title>
     </head>
     <body>
+    <header>Blog</header>
     <?php
-        <header>Blog</header>
+
         $var='Pancakes';
         echo $var.' gauffres<br>';
     ?>
