@@ -11,7 +11,7 @@ class validation
 {
     public static function validChaine($chaine, $type)
         {
-        $char_list="/[a-zA-Z0-9]{1,8}/";
+        //$char_list="/[a-zA-Z0-9]{1,8}/";
         $char_list2="/[a-zA-Z0-9&#-_+=]{1,10}/";
         
         
@@ -20,22 +20,22 @@ class validation
                 case 'login' : 
                     if(!empty($chaine))
                     {
-                        $chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
-                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>$char_list)))==false?false:true;
+                        //$chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
+                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-zA-Z0-9]{1,8}/")))==false?false:true;
                     }
             break;
                 case 'motDePasse' :
                     if(isset($chaine))
                     {
-                        $chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
-                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>$char_list2)))==false?false:true;
+                        //$chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
+                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-zA-Z0-9&#-_+=]{1,10}/")))==false?false:true;
                     }
             break;
             }
             return false;
-        
+
         }
-        
+
     public static function validate($tab)
     {
         $tabBool = null;

@@ -10,9 +10,15 @@
     $chaine1='Jean';
     $chaine2='Coucou';
 
-    $chaine3='J$jan';
+    $chaine3='Jjanù_è';
     $chaine4='*a;:je';
 
-    if(validation::validChaine($chaine3, 'login')==true)
-        echo 'ok';
-    else echo 'erreur';
+    $array=array($chaine1, $chaine2, $chaine3, $chaine4);
+    validation::validate($array);
+    foreach($array as $key =>$value)
+    {
+       if($value==true)
+           echo 'ok';
+       else echo 'erreur';
+    }
+
