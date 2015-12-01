@@ -11,7 +11,7 @@
     $chaine2='Coucou';
 
     $chaine3='Jjanù_è';
-    $chaine4='*a;:je';
+    $chaine4='*a;:je*$kkguyyy(jj(-ytyiçàô$uhkj';
 
     $array=array($chaine1, $chaine2, $chaine3, $chaine4);
     validation::validate($array);
