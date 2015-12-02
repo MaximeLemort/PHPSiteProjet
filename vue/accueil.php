@@ -8,19 +8,19 @@
         <header class="page-header text-center">
             <ul class="tableboutons">
                 <li><a href="accueil.php" class="activebouton">Accueil</a></li>
-                <li><a href="connection.php">Login</a></li>
+                <li><a href="connection.html">Login</a></li>
             </ul>
         </header>
         <div>
             <?php
             try {
-                include '../controleur/article.php';
+                include '../modele/article.php';
                 require '../modele/listeArticles.php';
                 require '../vue/affichageArticles.php';
             }
             catch (Exception $ex) {
                 $TMessage[]=$ex->getMessage();
-                require '..vue/erreur.php';
+                require 'erreur.php';
             }
             ?>
         </div>

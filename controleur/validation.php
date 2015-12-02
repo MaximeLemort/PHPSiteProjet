@@ -9,10 +9,10 @@
 
 class validation 
 {
-    public static function validChaine($chaine, $type)
+    public static function validateChaine($chaine, $type)
         {
         //$char_list="/[a-zA-Z0-9]{1,8}/";
-        $char_list2="/[a-zA-Z0-9&#-_+=]{1,10}/";
+        //$char_list2="/[a-zA-Z0-9&#-_+=]{1,10}/";
         
         
         switch ($type)
@@ -21,14 +21,14 @@ class validation
                     if(!empty($chaine))
                     {
                         //$chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
-                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-zA-Z0-9]{1,8}/")))==false?false:true;
+                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9]{1,8}$/")))==false?false:true;
                     }
             break;
-                case 'motDePasse' :
+                case 'password' :
                     if(isset($chaine))
                     {
                         //$chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
-                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-zA-Z0-9&#-_+=]{1,10}/")))==false?false:true;
+                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9&#-_+=]{1,10}$/")))==false?false:true;
                     }
             break;
             }
@@ -36,12 +36,11 @@ class validation
 
         }
 
-    public static function validate($tab)
+    public static function validateAll($tab, $type)
     {
         $tabBool = null;
-        foreach($tab as $key =>$value)
-        {
-            $tabBool[] = validation::validChaine($value, $key);
+        foreach($tab as $key =>$value) {
+            $tabBool[] = validation::validChaine($value, $type);
         }
         return $tabBool;
     }
