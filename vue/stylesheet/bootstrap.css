@@ -2491,6 +2491,35 @@ table th[class*="col-"] {
     border-bottom: 0;
   }
 }
+
+li {
+  float: left;
+}
+
+li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.activebouton) {
+  background-color: #111;
+}
+
+.activebouton {
+  background-color: #4cae4c;
+}
+
+.tableboutons {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
 fieldset {
   min-width: 0;
   padding: 0;
