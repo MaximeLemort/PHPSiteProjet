@@ -1,7 +1,9 @@
 <?php
 try{
-    require_once '../controleur/classConnection.php';
+    //require_once '../controleur/classConnection.php';
     require '../config/config.php';
+    require('../config/Autoload.php');
+    Autoload::charger();
     $con = new classConnection($base, $login, $mdp);
     echo 'OK<br>';
 

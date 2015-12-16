@@ -20,14 +20,14 @@ class validation
                 case 'login' : 
                     if(!empty($chaine))
                     {
-                        //$chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
+                        $chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
                         return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9]{1,8}$/")))==false?false:true;
                     }
             break;
                 case 'password' :
                     if(isset($chaine))
                     {
-                        //$chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
+                        $chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
                         return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9&#-_+=]{1,10}$/")))==false?false:true;
                     }
             break;
