@@ -2523,6 +2523,10 @@ li a:hover:not(.activebouton) {
   color: white;
 }
 
+.formconnection {
+  color: black;
+}
+
 fieldset {
   min-width: 0;
   padding: 0;

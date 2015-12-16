@@ -19,6 +19,14 @@
                         <li><a href="connection.html">Login</a></li>
                     </ul>
                 </td>
+                <td>
+                    <?php
+                        if(isset($_SESSION['login']) && isset($_SESSION['password'])) {
+                            echo $_SESSION['login'].' '.$_SESSION['password'];
+                        }
+                            else echo 'Non connecté';
+                    ?>
+                </td>
             </tr>
         </table>
     </header>

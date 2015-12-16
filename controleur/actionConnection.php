@@ -22,5 +22,5 @@
             $TMessage[1]="Password error";
             require '../vue/erreur.php';
         }
-        echo $_SESSION['login'].' '.$_SESSION['password'];
+         //require '../vue/accueil.php'; -> TODO : REDIRECTION SUR ACCUEIL
     }
