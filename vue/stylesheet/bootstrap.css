@@ -1409,10 +1409,12 @@ a.bg-danger:focus {
   background-color: #e4b9b9;
 }
 .page-header {
+  border-top: solid 1px white;
   margin: 0px 0 20px;
   font-size: 22px;
   font-weight: bold;
-  width: 100%
+  width: 100%;
+  border-bottom: solid 1px white
 }
 ul,
 ol {
@@ -2520,6 +2522,10 @@ li a:hover:not(.activebouton) {
 
 .pagebackground {
   background-color: #112f53;
+  color: white;
+}
+
+.formconnection strong {
   color: white;
 }
 

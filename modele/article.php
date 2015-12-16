@@ -12,6 +12,7 @@
  * @author mobouafas1 & malemort1
  */
 class Article {
+    var $id;
     var $titre;
     var $resume;
     var $dateParution;
@@ -25,15 +26,17 @@ class Article {
         }
     }
 
-    function __construct2($titre, $resume)
+    function __construct3($id, $titre, $resume)
     {
+        $this->id=$id;
         $this->titre=$titre;
         $this->resume=$resume;
         $this->dateParution= new DateTime();
     }
 
-    function __construct3($titre, $resume, $dateParution)
+    function __construct4($id, $titre, $resume, $dateParution)
     {
+        $this->id=$id;
         $this->titre=$titre;
         $this->resume=$resume;
         $this->dateParution=$dateParution;

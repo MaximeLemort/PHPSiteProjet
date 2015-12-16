@@ -1,26 +1,29 @@
 <?php
-    require 'sanitize.php';
-    require 'validation.php';
+    require '../config/Autoload.php';
+    Autoload::charger();
+
     if (isset($_POST['Submit'])) {
-        session_start();
         $_SESSION['login']="";
         $_SESSION['password']="";
         $chaine=sanitize::sanitizeChaine($_POST['login'], 'login');
         if (validation::validateChaine($chaine, 'login'))
-            $_SESSION['login']=$chaine;
+            $_SESSION['login'] = $chaine;
         else{
             $TMessage=[];
             $TMessage[1]="Login error";
             require '../vue/erreur.php';
+            session_destroy(); //pas bien
         }
 
         $chaine=sanitize::sanitizeChaine($_POST['password'], 'password');
         if (validation::validateChaine($chaine, 'password'))
             $_SESSION['password']=$chaine;
-        else{
-            $TMessage=[];
-            $TMessage[1]="Password error";
+        else {
+            $TMessage = [];
+            $TMessage[1] = "Password error";
             require '../vue/erreur.php';
+            session_destroy(); //pas bien
         }
-         //require '../vue/accueil.php'; -> TODO : REDIRECTION SUR ACCUEIL
+        header('Location: ../vue/accueil.php'); //-> TODO : REDIRECTION SUR ACCUEIL avec passage du login/mdp
     }
+

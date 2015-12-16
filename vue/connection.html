@@ -5,13 +5,12 @@
         <title>Ceci est un début de blog</title>
     </head>
     <body class="pagebackground">
-        <header>
-            <table class="page-header text-center">
-                <tr>
-                    <td>
-                        <img src="stylesheet/worlds-2015-banner-875.jpg" />
-                    </td>
-                </tr>
+        <header class="text-center">
+            <img src="stylesheet/worlds-2015-banner-875.jpg"/>
+        </header>
+
+        <div class="page-header">
+            <table>
                 <tr>
                     <td>
                         <ul class="tableboutons">
@@ -21,12 +20,12 @@
                     </td>
                 </tr>
             </table>
-        </header>
+        </div>
         <div class="formconnection">
             <strong>Veuillez vous connecter</strong>
             <form action="../controleur/actionConnection.php" method="post">
             <input type="text" name="login"/>
-            <input type="text" name="password"/>
+            <input type="password" name="password"/>
             <input type="submit" name="Submit" value="Login" />
             </form>
         </div>
