@@ -4,13 +4,24 @@
         <link rel="stylesheet" href="../vue/stylesheet/bootstrap.css"/>
         <title>Ceci est un début de blog</title>
     </head>
-    <body>
-        <header class="page-header text-center">
-            <ul class="tableboutons">
-                <li><a href="accueil.php" class="activebouton">Accueil</a></li>
-                <li><a href="connection.html">Login</a></li>
-            </ul>
-        </header>
+    <body class="pagebackground">
+    <header>
+        <table class="page-header text-center">
+            <tr>
+                <td>
+                    <img src="stylesheet/worlds-2015-banner-875.jpg" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul class="tableboutons">
+                        <li><a href="accueil.php">Accueil</a></li>
+                        <li><a href="connection.html">Login</a></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </header>
         <div>
             <?php
             try {

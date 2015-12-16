@@ -1409,11 +1409,10 @@ a.bg-danger:focus {
   background-color: #e4b9b9;
 }
 .page-header {
-  padding-bottom: 9px;
-  margin: 40px 0 20px;
-  border-bottom: 1px solid #eee;
+  margin: 0px 0 20px;
   font-size: 22px;
   font-weight: bold;
+  width: 100%
 }
 ul,
 ol {
@@ -2515,9 +2514,13 @@ li a:hover:not(.activebouton) {
 .tableboutons {
   list-style-type: none;
   margin: 0;
-  padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #112f53;
+}
+
+.pagebackground {
+  background-color: #112f53;
+  color: white;
 }
 
 fieldset {
@@ -6027,7 +6030,6 @@ button.close {
 .modal-footer {
   padding: 15px;
   text-align: right;
-  border-top: 1px solid #e5e5e5;
 }
 .modal-footer .btn + .btn {
   margin-bottom: 0;

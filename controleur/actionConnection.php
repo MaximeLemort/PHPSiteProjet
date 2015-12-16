@@ -3,20 +3,24 @@
     require 'validation.php';
     if (isset($_POST['Submit'])) {
         session_start();
+        $_SESSION['login']="";
+        $_SESSION['password']="";
         $chaine=sanitize::sanitizeChaine($_POST['login'], 'login');
         if (validation::validateChaine($chaine, 'login'))
             $_SESSION['login']=$chaine;
         else{
-            echo '<br><center>ERREUR LOGIN</center></br>';
-            exit;
+            $TMessage=[];
+            $TMessage[1]="Login error";
+            require '../vue/erreur.php';
         }
 
         $chaine=sanitize::sanitizeChaine($_POST['password'], 'password');
         if (validation::validateChaine($chaine, 'password'))
             $_SESSION['password']=$chaine;
         else{
-            echo '<br><center>ERREUR PASSWORD</center></br>';
-            exit;
+            $TMessage=[];
+            $TMessage[1]="Password error";
+            require '../vue/erreur.php';
         }
         echo $_SESSION['login'].' '.$_SESSION['password'];
     }
