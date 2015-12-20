@@ -9,7 +9,7 @@ require('../config/config.php');
  * Date: 12/16/2015
  * Time: 18:55
  */
-class ConnectionControl
+class AdminController
 {
 
     function __construct() {
@@ -34,7 +34,6 @@ class ConnectionControl
         }
         catch (PDOException $e)
         {
-            //si erreur BD, pas le cas ici
             $dVueEreur[] =	"Erreur inattendue!!! ";
             require ('../vue/erreur.php');
 
@@ -50,6 +49,10 @@ class ConnectionControl
     }
 
     function Connecter() {
+
+        global $base;
+        global $login;
+        global $mdp;
 
         $con = new classConnection($base, $login, $mdp);
 

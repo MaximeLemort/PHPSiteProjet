@@ -2,7 +2,7 @@
       foreach($TMessage as $value){
           echo($value);
           echo('<br>');
-          echo 'Retour index : <li><a href="../index.html"/></li>';
+          echo 'Retour index : <li><a href="../default.php"/></li>';
       }
 
 

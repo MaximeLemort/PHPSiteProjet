@@ -3,8 +3,8 @@
 class ArticleGateway {
     private $con;
     
-    public function _construct(classConnection $con) {
-        $this->con = $con;
+    public function __construct(Connection $connection) {
+        $this->con = $connection;
     }
     
     public function addArticle($id, $titre, $resume, $dateParution) {
@@ -17,7 +17,19 @@ class ArticleGateway {
         
         return $this->con->lastInsertId();
     }
-    
+
+    public function findAllArticles() {
+        $query='Select * from Article';
+
+        $this->con->executeQuery($query);
+        $results=$this->con->getResults();
+        foreach($results as $row)
+        {
+            $tabArticles[]=new Article($row['id'], $row['titre'], $row['resume'], $row['dateParution']);
+        }
+        return $tabArticles;
+    }
+
     public function editArticle($id, $titre, $resume) {
         $query='UPDATE Article SET titre=:titre, resume=:resume WHERE id=:id';
         
@@ -32,3 +44,5 @@ class ArticleGateway {
         $this->con->executeQuery($query, array(':id' => array($id, PDO::PARAM_INT)));
     }
 }
+
+

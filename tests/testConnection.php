@@ -1,10 +1,10 @@
 <?php
 try{
-    //require_once '../controleur/classConnection.php';
+    //require_once '../controleur/Connection.php';
     require '../config/config.php';
     require('../config/Autoload.php');
     Autoload::charger();
-    $con = new classConnection($base, $login, $mdp);
+    $con = new Connection($base, $login, $mdp);
     echo 'OK<br>';
 
     $query = "Select titre, id from Article";

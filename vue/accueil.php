@@ -1,13 +1,12 @@
 <html lang="fr">
-    <?php
-    require '../config/Autoload.php';
-    Autoload::charger();
-    ?>
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../vue/stylesheet/bootstrap.css"/>
         <title>Ceci est un début de blog</title>
     </head>
+    <?php
+        if(isset($tabArticles))
+    {?>
     <body class="pagebackground">
 
         <?php
@@ -17,8 +16,7 @@
         <div>
             <?php
             try {
-                require '../modele/listeArticles.php';
-                require 'affichageArticles.php';
+               require 'affichageArticles.php';
             }
             catch (Exception $ex) {
                 $TMessage[]=$ex->getMessage();
@@ -26,6 +24,9 @@
             }
             ?>
         </div>
+        <?php }
+        else echo 'Erreur lors du listage'?>
+
         <footer class="modal-footer">Ce blog est un projet PHP</footer>
     </body>
 </html>

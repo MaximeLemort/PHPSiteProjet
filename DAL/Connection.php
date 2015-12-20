@@ -11,7 +11,7 @@
  *
  * @author mobouafas1
  */
-class classConnection extends PDO {
+class Connection extends PDO {
     private $stmt;
     
     public function __construct($dsn, $username, $passwd) {

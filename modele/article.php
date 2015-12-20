@@ -6,6 +6,9 @@
  * and open the template in the editor.
  */
 
+include_once '../config/config.php'; //ne marche pas...?
+include_once 'config/config.php'; //n'est pas supposé marcher.
+
 /**
  * Description of Article
  *
@@ -40,5 +43,15 @@ class Article {
         $this->titre=$titre;
         $this->resume=$resume;
         $this->dateParution=$dateParution;
+    }
+
+    function getListAllArticles(){
+
+        global $base;
+        global $login;
+        global $mdp;
+
+        $g=new ArticleGateway(new Connection($base, $login, $mdp));
+        return $g.findAllArticles();
     }
 }
