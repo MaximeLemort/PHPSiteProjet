@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="stylesheet/bootstrap.css"/>
+        <link rel="stylesheet" href="vue/stylesheet/bootstrap.css"/>
         <title>Ceci est un début de blog</title>
     </head>
     <body class="pagebackground">
@@ -10,7 +10,7 @@
             <table class="page-header text-center">
                 <tr>
                     <td>
-                        <img src="stylesheet/worlds-2015-banner-875.jpg" />
+                        <img src="vue/stylesheet/worlds-2015-banner-875.jpg" />
                     </td>
                 </tr>
                 <?php
