@@ -6,7 +6,7 @@
             <td>
                 <ul class="tableboutons">
                     <li><a href="<?php $rep.$vues['accueil']?>">Accueil</a></li>
-                    <!--<li><a href="<?php //$rep.$vues['connection']?>">Login</a></li>-->
+                    <li><a href="$rep.$vues['connection']">Login</a></li>
                 </ul>
                 <?php $adm=new AdminController(); ?>
                 <?php
@@ -25,7 +25,7 @@
                         <input type="submit" value="Editer">
                         <input type="hidden" name="action" value="editer">
                     </form>
-                <? } ?>
+                <?php } ?>
             </td>
             <td>
 
