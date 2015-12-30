@@ -27,6 +27,15 @@ class AdminController
                 case "connecter":
                     $this->Connecter();
                     break;
+                case "ajouter":
+                    $this->Add();
+                    break;
+                case "supprimer":
+                    $this->Delete();
+                    break;
+                case "editer":
+                    $this->Edit();
+                    break;
                 default:
                     $TMessage = "Erreur";
                     require('../vue/erreur.php');
@@ -48,13 +57,14 @@ class AdminController
 
     }
 
-    function Connecter() {
+    function Connecter() {      //à mettre dans le modele
 
         global $base;
         global $login;
         global $mdp;
+        global $logged;
 
-        $con = new classConnection($base, $login, $mdp);
+        $con = new Connection($base, $login, $mdp);
 
         $log=$_POST['login'];
         $passwd=$_POST['password'];
@@ -81,13 +91,53 @@ class AdminController
         try{
             $adm=new AdminGateway($con);
             $adm->connectionAdmin($log, $passwd);
+            $logged=true;
         } catch (PDOException $e)
         {
             $TMessage[]=$e->getMessage();
             require '../vue/erreur.php';
         }
-
         header('Location: /../vue/accueil.php');
         exit(0);
+    }
+
+    function isAdmin() {    //dans modele aussi et pas sur que ce soit comme ça pour isAdmin
+        global $logged;
+
+        if($logged==true) {
+            return true;
+        }
+        return false;
+    }
+
+    function Add() {
+        $a=new MdlArticle();
+        $id=$_POST['id'];
+        $titre=$_POST['titre'];
+        $resume=$_POST['resume'];
+        $dateParution=$_POST['dateParution'];
+        if(validation::validateChaine($id, 'id') && validation::validateChaine($titre, 'titre')
+            && validation::validateChaine($resume, 'resume') && validation::validateChaine($dateParution, 'dateParution')) {
+            $a->addArticle($id, $titre, $resume, $dateParution);
+        }
+    }
+
+    function Delete() {
+        $a=new MdlArticle();
+        $id=$_POST['id'];
+        if(validation::validateChaine($id, 'id')) {
+            $a->deleteArticle($id);
+        }
+    }
+
+    function Edit() {
+        $a=new MdlArticle();
+        $id=$_POST['id'];
+        $titre=$_POST['titre'];
+        $resume=$_POST['resume'];
+        if(validation::validateChaine($id, 'id') && validation::validateChaine($titre, 'titre')
+            && validation::validateChaine($resume, 'resume')) {
+            $a->editArticle($id, $titre, $resume);
+        }
     }
 }

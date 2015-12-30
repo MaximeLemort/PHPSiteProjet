@@ -8,25 +8,15 @@
         <header class="text-center">
             <img src="stylesheet/worlds-2015-banner-875.jpg"/>
         </header>
-
-        <div class="page-header">
-            <table>
-                <tr>
-                    <td>
-                        <ul class="tableboutons">
-                            <li><a href="accueil.php">Accueil</a></li>
-                            <li><a href="connection.html">Login</a></li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <?php
+        require 'banner.php';
+        ?>
         <div class="formconnection">
             <strong>Veuillez vous connecter</strong>
             <form action="../controleur/AdminController.php" method="post">
             <input type="text" name="login"/>
             <input type="password" name="password"/>
-            <input type hidden name="action" value="connecter"/> <!-- action, refere a ConnectionControl -->
+            <input type="hidden" name="action" value="connecter"/> <!-- action, refere a ConnectionControl -->
             <input type="submit" name="Submit" value="Login" />
             </form>
         </div>

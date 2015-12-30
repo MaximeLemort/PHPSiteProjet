@@ -21,7 +21,7 @@
                                 <input type="hidden" name="action" value="lister">
                             </form>
 
-                            <li><a href="vue/connection.html">Login</a></li>
+                            <li><a href="vue/connection.php">Login</a></li>
                         </ul>
                     </td>
                 </tr>

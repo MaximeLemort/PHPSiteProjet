@@ -23,14 +23,38 @@ class validation
                         $chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
                         return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9]{1,8}$/")))==false?false:true;
                     }
-            break;
+                    break;
                 case 'password' :
                     if(isset($chaine))
                     {
                         $chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
                         return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9&#-_+=]{1,10}$/")))==false?false:true;
                     }
-            break;
+                    break;
+                case 'id' :
+                    if(isset($chaine)){
+                        $chaine=filter_var($chaine, FILTER_SANITIZE_NUMBER_INT);
+                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[0-9]{1,10}$/")))==false?false:true;
+                    }
+                    break;
+                case 'titre' :
+                    if(isset($chaine)) {
+                        $chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
+                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9&#-_+=]{1,100}$/")))==false?false:true;
+                    }
+                    break;
+                case 'resume' :
+                    if(isset($chaine)) {
+                        $chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
+                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9&#-_+=]{1,500}$/")))==false?false:true;
+                    }
+                    break;
+                case 'dateParution' :
+                    if(isset($chaine)) {
+                        $chaine=filter_var($chaine, FILTER_SANITIZE_NUMBER_INT);
+                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[0-9&/-]{1,10}$/")))==false?false:true;
+                    }
+                    break;
             }
             return false;
 
@@ -40,7 +64,7 @@ class validation
     {
         $tabBool = null;
         foreach($tab as $key =>$value) {
-            $tabBool[] = validation::validChaine($value, $type);
+            $tabBool[] = validation::validateChaine($value, $type);
         }
         return $tabBool;
     }

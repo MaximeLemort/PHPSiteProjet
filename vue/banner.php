@@ -9,8 +9,8 @@
         <tr>
             <td>
                 <ul class="tableboutons">
-                    <li><a href="accueil.php">Accueil</a></li>
-                    <li><a href="connection.html">Login</a></li>
+                    <li><a href="<?php $rep.$vues['accueil']?>">Accueil</a></li>
+                    <li><a href="<?php $rep.$vues['connection']?>">Login</a></li>
                 </ul>
             </td>
             <td>
