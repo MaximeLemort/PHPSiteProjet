@@ -22,7 +22,7 @@ class AdminController
             $action=$_REQUEST['action'];
             switch($action) {
                 case NULL:
-                    require('../vue/connection.php');
+                    require('../vue/admin.php');
                     break;
                 case "connecter":
                     $this->Connecter();

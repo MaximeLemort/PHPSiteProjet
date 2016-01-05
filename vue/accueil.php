@@ -22,9 +22,19 @@
                 <div>
                     <?php
                         try {
-                            //require 'affichageArticles.php';
                             foreach ($tabArticles as $value) {
                                 echo $value->id.' : '.$value->titre.'<br>'.$value->resume.'<br>'.$value->dateParution.'<br><br>';
+                                if(isset($_SESSION['admin']))
+                                {
+                                    ?>
+                                    <li><a href="<?php $rep.$vues['editer']?>">Editer</a></li>
+                                    <form method="post" >
+                                        <input type="submit" value="supprimer">
+                                        <input type="text" value="<?php $value->id?>" id="id">
+                                        <input type="hidden" name="action" value="suprimer">
+                                    </form>
+                                <?php
+                                }
                             }
                         }
                         catch (Exception $ex) {

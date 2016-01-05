@@ -16,7 +16,7 @@
             <form action="../controleur/AdminController.php" method="post">
             <input type="text" name="login"/>
             <input type="password" name="password"/>
-            <input type="hidden" name="action" value="connecter"/> <!-- action, refere a ConnectionControl -->
+            <input type="hidden" name="action" value="connecter"/> <!-- action, refere a AdminController -->
             <input type="submit" name="Submit" value="Login" />
             </form>
         </div>
