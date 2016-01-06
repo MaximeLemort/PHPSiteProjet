@@ -21,7 +21,7 @@
         <header/>
         
         <?php
-            if(!isset($_SESSION['admin'])) {
+            if($_SESSION['role']!='admin') {
                 $TMessage[] = "We do not know who you are. Or what you want. But the fact is, you should not be here.";
                 require 'erreur.php';
             }

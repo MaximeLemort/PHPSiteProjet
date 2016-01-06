@@ -24,7 +24,7 @@
                         try {
                             foreach ($tabArticles as $value) {
                                 echo $value->id.' : '.$value->titre.'<br>'.$value->resume.'<br>'.$value->dateParution.'<br><br>';
-                                if(isset($_SESSION['admin']))
+                                if($_SESSION['role']=='admin')
                                 {
                                     ?>
                                     <li><a href="<?php $rep.$vues['editer']?>">Editer</a></li>

@@ -15,5 +15,5 @@ $vues['accueil']='vue/accueil.php';
 $vues['default']='default.php';
 $vues['config']='config/config.php';
 $vues['connection']='vue/connection.php';
-$vues['admin']='vue/admin.php';
+$vues['admin']='vue/administration.php';
 $vues['editer']='vue/editer.php';

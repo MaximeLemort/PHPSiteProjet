@@ -9,7 +9,7 @@
                     <li><a href="<?php $rep.$vues['connection']?>">Login</a></li>
                 </ul>
                 <?php
-                if(isset($_SESSION['admin']))
+                if($_SESSION['role']=='admin')
                 {
                     ?>
                     <li><a href="<?php $rep.$vues['admin']?>">Administration</a></li>
@@ -19,7 +19,7 @@
 
                     <?php
 
-                        if(isset($_SESSION['login'])) {
+                        if($_SESSION['role']=='admin') {
                             echo 'Bienvenue, Mr. '.$_SESSION['login'];
                         }
                         else echo 'Non connecté';

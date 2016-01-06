@@ -24,10 +24,16 @@ class sanitize
                 }
                 break;
             case 'password' :
-                if(!empty($chaine))
-                {
+                if(!empty($chaine)) {
                     return filter_var($chaine, FILTER_SANITIZE_STRING);
-
+                }
+            case 'action' :
+                if(!empty($chaine)) {
+                    return filter_var($chaine, FILTER_SANITIZE_STRING);
+                }
+            case 'nbCo' :
+                if(!empty($chaine)){
+                    return filter_var($chaine, FILTER_SANITIZE_NUMBER_INT);
                 }
                 break;
         }
