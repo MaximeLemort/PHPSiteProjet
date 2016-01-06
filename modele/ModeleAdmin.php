@@ -6,6 +6,9 @@
  * Date: 12/16/2015
  * Time: 19:08
  */
+
+global $rep, $vues;
+
 class ModeleAdmin //Quoi mettre ici?
 {
 
@@ -63,8 +66,7 @@ class ModeleAdmin //Quoi mettre ici?
             $TMessage[]=$e->getMessage();
             require '../vue/erreur.php';
         }
-        header('Location: /../vue/accueil.php');
-        exit(0);
+        return;
     }
 
     function isAdmin() {

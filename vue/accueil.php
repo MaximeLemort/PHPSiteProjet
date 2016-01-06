@@ -22,18 +22,22 @@
                 <div>
                     <?php
                         try {
+                            //$_SESSION['role']='admin';
+                            //$_SESSION['login']='malemort';
+                            //$_SESSION['mdp']='Curser63';
                             foreach ($tabArticles as $value) {
                                 echo $value->id.' : '.$value->titre.'<br>'.$value->resume.'<br>'.$value->dateParution.'<br><br>';
-                                if($_SESSION['role']=='admin')
+                                if(isset($_SESSION['role']))
                                 {
                                     ?>
                                     <li><a href="<?php $rep.$vues['editer']?>">Editer</a></li>
                                     <form method="post" >
                                         <input type="submit" value="supprimer">
-                                        <input type="text" value="<?php $value->id?>" id="id">
-                                        <input type="hidden" name="action" value="suprimer">
+                                        <input type="hidden" value=<?php $value->id?> name="id" >
+                                        <input type="hidden" name="action" value="supprimer">
                                     </form>
                                 <?php
+                                    echo '<br>';
                                 }
                             }
                         }

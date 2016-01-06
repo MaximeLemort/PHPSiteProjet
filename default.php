@@ -17,7 +17,7 @@
                     <td>
                         <ul class="tableboutons">
                             <form method="post" >
-                                <input type="submit" value="Lister">
+                                <input type="submit" value="Accueil">
                                 <input type="hidden" name="action" value="lister">
                             </form>
 

@@ -9,13 +9,15 @@
  */
 class UserController
 {
-
     function __construct()
     {
         $TMessage=[];
         global $rep, $vues;
         try {
             $action=$_REQUEST['action'];
+            echo "<br>";
+            var_dump($action);
+            echo "<- Action de UserController";
             switch($action) {
                 case NULL:
                     $this->afficherAccueil();

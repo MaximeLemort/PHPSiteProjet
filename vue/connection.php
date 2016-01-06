@@ -13,11 +13,11 @@
         ?>
         <div class="formconnection">
             <strong>Veuillez vous connecter</strong>
-            <form action="../controleur/AdminController.php" method="post">
-            <input type="text" name="login"/>
-            <input type="password" name="password"/>
-            <input type="hidden" name="action" value="connecter"/> <!-- action, refere a AdminController -->
-            <input type="submit" name="Submit" value="Login" />
+            <form method="post">
+            <input type="text" name="login" id="login"/>
+            <input type="password" name="mdp" id="mdp"/>
+            <input type="hidden" name="action" value="connecter"/> <!-- action, refere au FrontController -->
+            <input type="submit" name="submit" value="Login" />
             </form>
         </div>
         <footer class="modal-footer">Ce blog est un projet PHP</footer>

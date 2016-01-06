@@ -28,9 +28,9 @@
             else{?>
                 <form method="post" >
                     <input type="submit" value="ajouter">
-                    <input type="text" id="id" value="id">
-                    <input type="text" id="titre" value="titre">
-                    <input type="text" id="resume" value="resume">
+                    <input type="text" name="id" value="id">
+                    <input type="text" name="titre" value="titre">
+                    <input type="text" name="resume" value="resume">
                     <input type="hidden" name="action" value="ajouter">
                 </form>
             <?php }?>

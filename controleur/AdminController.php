@@ -1,8 +1,8 @@
 <?php
 
-require('../config/Autoload.php');
-Autoload::charger();
-require('../config/config.php');
+//require('../config/Autoload.php');
+//Autoload::charger();
+//require('../config/config.php');
 /**
  * Created by PhpStorm.
  * User: maxime
@@ -15,9 +15,11 @@ class AdminController
     function __construct() {
 
         $TMessage=[];
-
+        global $rep, $vues;
         try {
             $action=$_REQUEST['action'];
+            var_dump($action);
+            echo "<- Action de admincontroller";
             switch($action) {
                 case NULL:
                     require('../vue/connection.php');
@@ -87,7 +89,9 @@ class AdminController
     }
 
     function Connecter() {
+        global $rep, $vues;
         $ma=new ModeleAdmin();
         $ma->Connecter();
+        require $rep.$vues['accueil'];
     }
 }
