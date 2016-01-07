@@ -8,9 +8,7 @@
         <header class="text-center">
             <img src="stylesheet/worlds-2015-banner-875.jpg"/>
         </header>
-        <?php
-        require 'banner.php';
-        ?>
+
         <div class="formconnection">
             <strong>Veuillez vous connecter</strong>
             <form method="post">

@@ -44,7 +44,8 @@ class ModeleAdmin //Quoi mettre ici?
         else{
             $TMessage=[];
             $TMessage[1]="Login error";
-            require '../vue/erreur.php';
+            require '/vue/erreur.php';
+            return;
         }
 
         if (validation::validateChaine($passwdSan, 'password'))
@@ -52,7 +53,8 @@ class ModeleAdmin //Quoi mettre ici?
         else {
             $TMessage = [];
             $TMessage[1] = "Password error";
-            require '../vue/erreur.php';
+            require '/vue/erreur.php';
+            return;
         }
 
         try{
@@ -60,7 +62,7 @@ class ModeleAdmin //Quoi mettre ici?
             $adm->connectionAdmin($logSan, $passwdSan);
             $logged=true;
             $_SESSION['role']='admin';
-            inc_nb_connections();
+            //inc_nb_connections();
         } catch (PDOException $e)
         {
             $TMessage[]=$e->getMessage();

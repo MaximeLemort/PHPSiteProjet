@@ -16,11 +16,31 @@
                 <?php
                     if(isset($tabArticles))
                 {?>
-                <?php
-                    require 'banner.php';
-                ?>
-                <div>
-                    <?php
+
+                    <?php if(isset($_SESSION['role']))
+                    {
+                    ?>
+
+                    <li><a href="<?php $rep.$vues['admin']?>">Administration</a></li>
+
+                    <?php } else{?>
+
+
+
+                    <?php }?>
+                    <table/>
+                    <header/>
+                    <div class="formconnection">
+                        <strong>Veuillez vous connecter</strong>
+                        <form method="post">
+                            <input type="text" name="login" id="login"/>
+                            <input type="password" name="password" id="password"/>
+                            <input type="hidden" name="action" value="connecter"/> <!-- action, refere au FrontController -->
+                            <input type="submit" name="submit" value="Login" />
+                        </form>
+                    </div>
+                    <div>
+                        <?php
                         try {
                             //$_SESSION['role']='admin';
                             //$_SESSION['login']='malemort';
@@ -36,7 +56,7 @@
                                         <input type="hidden" value=<?php $value->id?> name="id" >
                                         <input type="hidden" name="action" value="supprimer">
                                     </form>
-                                <?php
+                                    <?php
                                     echo '<br>';
                                 }
                             }
@@ -45,12 +65,10 @@
                             $TMessage[]=$ex->getMessage();
                             require 'erreur.php';
                         }
-                    ?>
-                </div>
+                        ?>
+                    </div>
                 <?php }
                     else echo 'Erreur lors du listage'?>
-            <table/>
-        <header/>
         <footer class="modal-footer">Ce blog est un projet PHP</footer>
     </body>
 </html>

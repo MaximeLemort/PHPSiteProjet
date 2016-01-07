@@ -14,9 +14,7 @@
             </td>
         </tr>
 
-            <?php
-            require 'banner.php';
-            ?>
+            <li><a href="../index.php">Retour accueil</a></li>
         <table/>
         <header/>
         

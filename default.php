@@ -20,12 +20,29 @@
                                 <input type="submit" value="Accueil">
                                 <input type="hidden" name="action" value="lister">
                             </form>
-
-                            <li><a href="vue/connection.php">Login</a></li>
                         </ul>
                     </td>
                 </tr>
             </table>
+            <?php if(isset($_SESSION['role']))
+            {
+                ?>
+
+                <li><a href="<?php $rep.$vues['admin']?>">Administration</a></li>
+
+            <?php } else{?>
+
+                <div class="formconnection">
+                    <strong>Veuillez vous connecter</strong>
+                    <form method="post">
+                        <input type="text" name="login" id="login"/>
+                        <input type="password" name="password" id="password"/>
+                        <input type="hidden" name="action" value="connecter"/> <!-- action, refere au FrontController -->
+                        <input type="submit" name="submit" value="Login" />
+                    </form>
+                </div>
+
+            <?php }?>
         </header>
         <footer class="modal-footer">Ce blog est un projet PHP</footer>
     </body>
