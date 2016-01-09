@@ -36,6 +36,12 @@ class AdminController
                 case "editer":
                     $this->Edit();
                     break;
+                case "pageedit":
+                    require('../vue/editer.php');
+                    break;
+                case "admin":
+                    require('../vue/administration.php');
+                    break;
                 default:
                     $TMessage = "Erreur";
                     require('../vue/erreur.php');
@@ -58,26 +64,31 @@ class AdminController
     }
 
     function Add() {
+        global $rep, $vues;
         $a=new MdlArticle();
         $id=$_POST['id'];
         $titre=$_POST['titre'];
         $resume=$_POST['resume'];
-        $dateParution=$_POST['dateParution'];
+        $dateParution=new DateTime();
         if(validation::validateChaine($id, 'id') && validation::validateChaine($titre, 'titre')
             && validation::validateChaine($resume, 'resume') && validation::validateChaine($dateParution, 'dateParution')) {
             $a->addArticle($id, $titre, $resume, $dateParution);
         }
+        require ($rep.$vues['conf']);
     }
 
     function Delete() {
+        global $rep, $vues;
         $a=new MdlArticle();
         $id=$_POST['id'];
         if(validation::validateChaine($id, 'id')) {
             $a->deleteArticle($id);
         }
+        require ($rep.$vues['conf']);
     }
 
     function Edit() {
+        global $rep, $vues;
         $a=new MdlArticle();
         $id=$_POST['id'];
         $titre=$_POST['titre'];
@@ -86,12 +97,13 @@ class AdminController
             && validation::validateChaine($resume, 'resume')) {
             $a->editArticle($id, $titre, $resume);
         }
+        require ($rep.$vues['conf']);
     }
 
     function Connecter() {
         global $rep, $vues;
         $ma=new ModeleAdmin();
         $ma->Connecter();
-        require $rep.$vues['accueil'];
+        require $rep.$vues['admin'];
     }
 }

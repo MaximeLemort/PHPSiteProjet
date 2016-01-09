@@ -17,3 +17,4 @@ $vues['config']='config/config.php';
 $vues['connection']='vue/connection.php';
 $vues['admin']='vue/administration.php';
 $vues['editer']='vue/editer.php';
+$vues['conf']='vue/confirmation.php';

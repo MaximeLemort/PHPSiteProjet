@@ -27,7 +27,7 @@ class UserController
                     break;
                 default:
                     $TMessage = "Erreur";
-                    require('../vue/erreur.php');
+                    require $rep.$vues['erreur'];
             }
         }
         catch (PDOException $e)

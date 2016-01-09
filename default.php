@@ -28,7 +28,12 @@
             {
                 ?>
 
-                <li><a href="<?php $rep.$vues['admin']?>">Administration</a></li>
+                <div class="formconnection">
+                    <form method="post" >
+                        <input type="submit" value="adimnistration">
+                        <input type="hidden" name="action" value="admin">
+                    </form>
+                </div>
 
             <?php } else{?>
 

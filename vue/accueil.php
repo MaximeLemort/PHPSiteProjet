@@ -21,7 +21,12 @@
                     {
                     ?>
 
-                    <li><a href="<?php $rep.$vues['admin']?>">Administration</a></li>
+                    <div class="formconnection">
+                        <form method="post" >
+                            <input type="submit" value="adimnistration">
+                            <input type="hidden" name="action" value="admin">
+                        </form>
+                    </div>
 
                     <?php } else{?>
 
@@ -50,12 +55,22 @@
                                 if(isset($_SESSION['role']))
                                 {
                                     ?>
-                                    <li><a href="<?php $rep.$vues['editer']?>">Editer</a></li>
-                                    <form method="post" >
-                                        <input type="submit" value="supprimer">
-                                        <input type="hidden" value=<?php $value->id?> name="id" >
-                                        <input type="hidden" name="action" value="supprimer">
-                                    </form>
+                                    <div class="formconnection">
+                                        <form method="post" >
+                                            <input type="submit" value="editer">
+                                            <input type="hidden" value="<?php $value->id?>" name="id" >
+                                            <input type="hidden" value="<?php $value->titre?>" name="titre" >
+                                            <input type="hidden" value="<?php $value->resume?>" name="resume" >
+                                            <input type="hidden" name="action" value="pageedit">
+                                        </form>
+                                    </div>
+                                    <div class="formconnection">
+                                        <form method="post" >
+                                            <input type="submit" value="supprimer">
+                                            <input type="hidden" value="<?php $value->id?>" name="id" >
+                                            <input type="hidden" name="action" value="supprimer">
+                                        </form>
+                                    </div>
                                     <?php
                                     echo '<br>';
                                 }

@@ -11,7 +11,7 @@ class AdminGateway
 
     private $con;
 
-    public function _construct(Connection $con) {
+    public function __construct(Connection $con) {
         $this->con = $con;
     }
 

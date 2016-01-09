@@ -14,7 +14,7 @@
             </td>
         </tr>
 
-            <li><a href="../index.php">Retour accueil</a></li>
+            <li><a href="index.php">Retour accueil</a></li>
         <table/>
         <header/>
         
@@ -24,13 +24,16 @@
                 require 'erreur.php';
             }
             else{?>
-                <form method="post" >
-                    <input type="submit" value="ajouter">
-                    <input type="text" name="id" value="id">
-                    <input type="text" name="titre" value="titre">
-                    <input type="text" name="resume" value="resume">
-                    <input type="hidden" name="action" value="ajouter">
-                </form>
+                <h1>Formulaire d'ajout d'article</h1>
+                <div class="formconnection">
+                    <form method="post" >
+                        <input type="text" name="id" value="id">
+                        <input type="text" name="titre" value="titre">
+                        <textarea name="resume" value="resume"></textarea>
+                        <input type="hidden" name="action" value="ajouter">
+                        <input type="submit" value="Ajouter">
+                    </form>
+                </div>
             <?php }?>
 
         <footer class="modal-footer">Ce blog est un projet PHP</footer>

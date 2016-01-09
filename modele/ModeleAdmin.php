@@ -9,19 +9,17 @@
 
 global $rep, $vues;
 
-class ModeleAdmin //Quoi mettre ici?
+class ModeleAdmin
 {
 
     var $login;
     var $mdp;
 
-    function __construct()
-    {
-    }
 
     function get_data() {
         return $this;
     }
+
 
     function Connecter() {
 
@@ -58,7 +56,8 @@ class ModeleAdmin //Quoi mettre ici?
         }
 
         try{
-            $adm=new AdminGateway(new Connection($base, $login, $mdp));
+            $con=new Connection($base, $login, $mdp);
+            $adm=new AdminGateway($con);
             $adm->connectionAdmin($logSan, $passwdSan);
             $logged=true;
             $_SESSION['role']='admin';
@@ -68,7 +67,10 @@ class ModeleAdmin //Quoi mettre ici?
             $TMessage[]=$e->getMessage();
             require '../vue/erreur.php';
         }
-        return;
+        catch (Exception $e) {
+            $TMessage[] = $e->getMessage();
+            require '../vue/erreur.php';
+        }
     }
 
     function isAdmin() {
