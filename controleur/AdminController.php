@@ -52,13 +52,13 @@ class AdminController
         }
         catch (PDOException $e)
         {
-            $dVueEreur[] =	"Erreur inattendue!!! ";
+            $TMessage[] =	"Erreur inattendue!!! ";
             require ('../vue/erreur.php');
 
         }
         catch (Exception $e2)
         {
-            $dVueEreur[] =	"Erreur inattendue!!! ";
+            $TMessage[] =	"Erreur inattendue!!! ";
             require ('../vue/erreur.php');
         }
 
@@ -72,13 +72,17 @@ class AdminController
         $id=$_POST['id'];
         $titre=$_POST['titre'];
         $resume=$_POST['resume'];
-        $dateParution=new DateTime();
+        $dateParution=date('Y-m-d');
         if(validation::validateChaine($id, 'id') && validation::validateChaine($titre, 'titre')
             && validation::validateChaine($resume, 'resume') && validation::validateChaine($dateParution, 'dateParution')) {
             echo 'pancakes';
             $a->addArticle($id, $titre, $resume, $dateParution);
+            require ($rep.$vues['conf']);
         }
-        require ($rep.$vues['conf']);
+        else {
+            $TMessage[]="L'ajout a échoué.";
+            require $rep . $vues['erreur'];
+        }
     }
 
     function Delete() {
@@ -87,8 +91,12 @@ class AdminController
         $id=$_POST['id'];
         if(validation::validateChaine($id, 'id')) {
             $a->deleteArticle($id);
+            require ($rep.$vues['conf']);
         }
-        require ($rep.$vues['conf']);
+        else {
+            $TMessage[]="La suppression a échouée.";
+            require $rep . $vues['erreur'];
+        }
     }
 
     function Edit() {
@@ -100,8 +108,12 @@ class AdminController
         if(validation::validateChaine($id, 'id') && validation::validateChaine($titre, 'titre')
             && validation::validateChaine($resume, 'resume')) {
             $a->editArticle($id, $titre, $resume);
+            require ($rep.$vues['conf']);
         }
-        require ($rep.$vues['conf']);
+        else {
+            $TMessage[]="La modification a échouée.";
+            require $rep . $vues['erreur'];
+        }
     }
 
     function Connecter() {

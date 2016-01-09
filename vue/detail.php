@@ -30,7 +30,7 @@
                 foreach($article as $value) {
                     echo $article->id . " " . $article->titre . "<br>" . $article->resume . "<br>" . $article->dateParution . "<br>";
 
-                    if (isset($_SESSION['role'])) {
+                    if ($_SESSION['role']=='admin') {
                         ?>
                         <div class="formconnection">
                             <form method="post">

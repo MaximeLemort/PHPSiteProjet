@@ -17,7 +17,7 @@
                     if(isset($tabArticles))
                 {?>
 
-                    <?php if(isset($_SESSION['role']))
+                    <?php if($_SESSION['role']=='admin')
                     {
                     ?>
 
@@ -51,7 +51,13 @@
                             //$_SESSION['login']='malemort';
                             //$_SESSION['mdp']='Curser63';
                             foreach ($tabArticles as $value) {
-                                echo $value->id.' : '.$value->titre.'<br>'.substr($value->resume,0, 100).'<br>'.$value->dateParution.'<br><br>';
+                                if(strlen($value->resume)>100)
+                                {
+                                    echo $value->id . ' : ' . $value->titre . '<br>' . substr($value->resume,0,100) . '... (appuyez sur le bouton ci-dessous pour les détails)<br>' . $value->dateParution . '<br><br>';
+                                }
+                                else {
+                                    echo $value->id . ' : ' . $value->titre . '<br>' . $value->resume . '<br>' . $value->dateParution . '<br><br>';
+                                }
                                 ?>
                                 <div class="formconnection">
                                     <form method="post" >
@@ -60,6 +66,7 @@
                                         <input type="hidden" name="action" value="detail">
                                     </form>
                                 </div>
+                                <br><br>
                         <?php
                             }
                         }

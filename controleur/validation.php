@@ -13,8 +13,7 @@ class validation
         {
         //$char_list="/[a-zA-Z0-9]{1,8}/";
         //$char_list2="/[a-zA-Z0-9&#-_+=]{1,10}/";
-        
-        
+
         switch ($type)
             {
                 case 'login' : 
@@ -34,26 +33,29 @@ class validation
                 case 'id' :
                     if(isset($chaine)){
                         $chaine=filter_var($chaine, FILTER_SANITIZE_NUMBER_INT);
-                        //return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[0-9]{1,10}$/")))==false?false:true;
-                        return filter_var($chaine, FILTER_VALIDATE_INT);
+                        var_dump(filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[0-9]{1,10}$/")))==false?false:true);
+                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[0-9]{1,10}$/")))==false?false:true;
                     }
                     break;
                 case 'titre' :
                     if(isset($chaine)) {
                         $chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
+                        var_dump(filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9&#-_+=]{1,100}$/")))==false?false:true);
                         return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9&#-_+=]{1,100}$/")))==false?false:true;
                     }
                     break;
                 case 'resume' :
                     if(isset($chaine)) {
                         $chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
+                        var_dump(filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9&#-_+=]{1,100}$/")))==false?false:true);
                         return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9&#-_+=]{1,500}$/")))==false?false:true;
                     }
                     break;
                 case 'dateParution' :
                     if(isset($chaine)) {
                         $chaine=filter_var($chaine, FILTER_SANITIZE_NUMBER_INT);
-                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"!^[0-9&/-]{1,10}$!")))==false?false:true;
+                        var_dump(filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"!^[0-9&/-]{1,10}$!")))==false?false:true);
+                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"!^[0-9&/_-]{1,10}$!")))==false?false:true;
                     }
                     break;
             }

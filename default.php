@@ -24,7 +24,7 @@
                     </td>
                 </tr>
             </table>
-            <?php if(isset($_SESSION['role']))
+            <?php if($_SESSION['role']=='admin')
             {
                 ?>
 
