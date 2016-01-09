@@ -25,6 +25,9 @@ class UserController
                 case "lister":
                     $this->listerTout();
                     break;
+                case "detail":
+                    $this->afficherDetail();
+                    break;
                 default:
                     $TMessage = "Erreur";
                     require $rep.$vues['erreur'];
@@ -50,7 +53,19 @@ class UserController
 
         $a=new MdlArticle();
         $tabArticles=$a->getListArticles();
-        require ($rep.$vues['accueil']); //TODO : afficher le vrai accueil. Probablement un probleme de lien
+        require ($rep.$vues['accueil']);
+    }
+
+    function afficherDetail() {
+        global $rep, $vues;
+
+        $id=$_POST['id'];
+        if(validation::validateChaine($id, 'id')) {
+            $a = new MdlArticle();
+            $article = $a->getDetailArticle($id);
+            require($rep . $vues['detail']);
+        }
+        else require $rep.$vues['default'];
     }
 
     function afficherAccueil() {

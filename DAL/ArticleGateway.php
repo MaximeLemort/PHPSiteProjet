@@ -43,6 +43,15 @@ class ArticleGateway {
         
         $this->con->executeQuery($query, array(':id' => array($id, PDO::PARAM_INT)));
     }
+
+    public function findArticle($id) {
+        $query='Select * from Article where id=:id';
+        $this->con->executeQuery($query, array(':id'=>array($id, PDO::PARAM_INT)));
+        $results=$this->con->getResults();
+        foreach($results as $row)
+            $article=new Article($row['id'], $row['titre'], $row['resume'], $row['dateParution']);
+        return $article;
+    }
 }
 
 

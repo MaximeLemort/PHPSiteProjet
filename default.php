@@ -30,7 +30,7 @@
 
                 <div class="formconnection">
                     <form method="post" >
-                        <input type="submit" value="adimnistration">
+                        <input type="submit" value="administration">
                         <input type="hidden" name="action" value="admin">
                     </form>
                 </div>

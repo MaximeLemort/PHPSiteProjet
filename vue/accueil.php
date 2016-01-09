@@ -23,7 +23,7 @@
 
                     <div class="formconnection">
                         <form method="post" >
-                            <input type="submit" value="adimnistration">
+                            <input type="submit" value="administration">
                             <input type="hidden" name="action" value="admin">
                         </form>
                     </div>
@@ -51,29 +51,16 @@
                             //$_SESSION['login']='malemort';
                             //$_SESSION['mdp']='Curser63';
                             foreach ($tabArticles as $value) {
-                                echo $value->id.' : '.$value->titre.'<br>'.$value->resume.'<br>'.$value->dateParution.'<br><br>';
-                                if(isset($_SESSION['role']))
-                                {
-                                    ?>
-                                    <div class="formconnection">
-                                        <form method="post" >
-                                            <input type="submit" value="editer">
-                                            <input type="hidden" value="<?php $value->id?>" name="id" >
-                                            <input type="hidden" value="<?php $value->titre?>" name="titre" >
-                                            <input type="hidden" value="<?php $value->resume?>" name="resume" >
-                                            <input type="hidden" name="action" value="pageedit">
-                                        </form>
-                                    </div>
-                                    <div class="formconnection">
-                                        <form method="post" >
-                                            <input type="submit" value="supprimer">
-                                            <input type="hidden" value="<?php $value->id?>" name="id" >
-                                            <input type="hidden" name="action" value="supprimer">
-                                        </form>
-                                    </div>
-                                    <?php
-                                    echo '<br>';
-                                }
+                                echo $value->id.' : '.$value->titre.'<br>'.substr($value->resume,0, 100).'<br>'.$value->dateParution.'<br><br>';
+                                ?>
+                                <div class="formconnection">
+                                    <form method="post" >
+                                        <input type="submit" value="Afficher les détails">
+                                        <input type="hidden" value="<?php $value->id?>" name="id" >
+                                        <input type="hidden" name="action" value="detail">
+                                    </form>
+                                </div>
+                        <?php
                             }
                         }
                         catch (Exception $ex) {

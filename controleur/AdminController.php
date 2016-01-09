@@ -40,7 +40,10 @@ class AdminController
                     require('../vue/editer.php');
                     break;
                 case "admin":
-                    require('../vue/administration.php');
+                    require $rep.$vues['admin'];
+                    break;
+                case "deconnecter":
+                    $this->Deconnecter();
                     break;
                 default:
                     $TMessage = "Erreur";
@@ -72,6 +75,7 @@ class AdminController
         $dateParution=new DateTime();
         if(validation::validateChaine($id, 'id') && validation::validateChaine($titre, 'titre')
             && validation::validateChaine($resume, 'resume') && validation::validateChaine($dateParution, 'dateParution')) {
+            echo 'pancakes';
             $a->addArticle($id, $titre, $resume, $dateParution);
         }
         require ($rep.$vues['conf']);
@@ -105,5 +109,19 @@ class AdminController
         $ma=new ModeleAdmin();
         $ma->Connecter();
         require $rep.$vues['admin'];
+    }
+
+    function Deconnecter() {
+        global $rep, $vues;
+        $_SESSION = array();
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
+        }
+        session_destroy();
+        require $rep.$vues['accueil'];
     }
 }

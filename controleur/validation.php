@@ -34,7 +34,8 @@ class validation
                 case 'id' :
                     if(isset($chaine)){
                         $chaine=filter_var($chaine, FILTER_SANITIZE_NUMBER_INT);
-                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[0-9]{1,10}$/")))==false?false:true;
+                        //return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[0-9]{1,10}$/")))==false?false:true;
+                        return filter_var($chaine, FILTER_VALIDATE_INT);
                     }
                     break;
                 case 'titre' :

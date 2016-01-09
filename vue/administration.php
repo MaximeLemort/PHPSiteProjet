@@ -29,9 +29,18 @@
                     <form method="post" >
                         <input type="text" name="id" value="id">
                         <input type="text" name="titre" value="titre">
+                        <br>
                         <textarea name="resume" value="resume"></textarea>
+                        <br>
                         <input type="hidden" name="action" value="ajouter">
                         <input type="submit" value="Ajouter">
+                    </form>
+                </div>
+
+                <div class="formconnection">
+                    <form method="post">
+                        <input type="submit" value="Deconnexion">
+                        <input type="hidden" value="deconnecter">
                     </form>
                 </div>
             <?php }?>

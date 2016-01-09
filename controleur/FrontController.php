@@ -6,7 +6,7 @@ class FrontController
     function __construct()
     {
         global $rep, $vues;
-        $listeActionAdmin = array('connecter', 'ajouter', 'supprimer', 'editer', 'pageedit', 'admin');
+        $listeActionAdmin = array('connecter', 'ajouter', 'supprimer', 'editer', 'pageedit', 'admin', 'deconnecter');
         try{
             $ma=new ModeleAdmin();
             $a=$ma->isAdmin();
