@@ -30,11 +30,6 @@
 
                     <?php } else{?>
 
-
-
-                    <?php }?>
-                    <table/>
-                    <header/>
                     <div class="formconnection">
                         <strong>Veuillez vous connecter</strong>
                         <form method="post">
@@ -44,6 +39,12 @@
                             <input type="submit" name="submit" value="Login" />
                         </form>
                     </div>
+
+
+                    <?php }?>
+                    </table>
+                    </header>
+
                     <div>
                         <?php
                         try {
@@ -58,11 +59,12 @@
                                 else {
                                     echo $value->id . ' : ' . $value->titre . '<br>' . $value->resume . '<br>' . $value->dateParution . '<br><br>';
                                 }
+                                $id=$value->id;
                                 ?>
                                 <div class="formconnection">
                                     <form method="post" >
                                         <input type="submit" value="Afficher les détails">
-                                        <input type="hidden" value="<?php $value->id?>" name="id" >
+                                        <input type="hidden" value="<?php echo $id?>" name="id" >
                                         <input type="hidden" name="action" value="detail">
                                     </form>
                                 </div>

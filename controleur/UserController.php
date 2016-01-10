@@ -58,7 +58,6 @@ class UserController
 
     function afficherDetail() {
         global $rep, $vues;
-
         $id=$_POST['id'];
         if(validation::validateChaine($id, 'id')) {
             $a = new MdlArticle();

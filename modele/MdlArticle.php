@@ -20,10 +20,6 @@ class MdlArticle {
         global $login;
         global $mdp;
 
-        var_dump($id);
-        var_dump($titre);
-        var_dump($resume);
-
         $ag=new ArticleGateway(new Connection($base, $login, $mdp));
         $i=$ag->addArticle($id, $titre, $resume, $dateParution); //recup l'id
     }
