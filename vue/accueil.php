@@ -42,6 +42,10 @@
 
 
                     <?php }?>
+                    <td>
+                        <?php if(isset($_COOKIE['nbCo']))
+                            echo $_COOKIE['nbCo']; ?>
+                    </td>
                     </table>
                     </header>
 
@@ -54,10 +58,10 @@
                             foreach ($tabArticles as $value) {
                                 if(strlen($value->resume)>100)
                                 {
-                                    echo $value->id . ' : ' . $value->titre . '<br>' . substr($value->resume,0,100) . '... (appuyez sur le bouton ci-dessous pour les détails)<br>' . $value->dateParution . '<br><br>';
+                                    echo $value->titre . '<br>' . substr($value->resume,0,100) . '... (appuyez sur le bouton ci-dessous pour les détails)<br>' . $value->dateParution . '<br><br>';
                                 }
                                 else {
-                                    echo $value->id . ' : ' . $value->titre . '<br>' . $value->resume . '<br>' . $value->dateParution . '<br><br>';
+                                    echo $value->titre . '<br>' . $value->resume . '<br>' . $value->dateParution . '<br><br>';
                                 }
                                 $id=$value->id;
                                 ?>

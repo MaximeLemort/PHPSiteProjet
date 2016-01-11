@@ -28,7 +28,7 @@
             <?php
             if(isset($article)) {
                 foreach($article as $value) {
-                    echo $article->id . " " . $article->titre . "<br>" . $article->resume . "<br>" . $article->dateParution . "<br>";
+                    echo $article->titre . "<br>" . $article->resume . "<br>" . $article->dateParution . "<br>";
 
                     if ($_SESSION['role']=='admin') {
                         ?>
@@ -36,9 +36,9 @@
                             <form method="post">
                                 <input type="submit" value="editer">
                                 <input type="hidden" value="<?php echo $article->id ?>" name="id">
-                                <input type="hidden" value="<?php echo $article->titre ?>" name="titre">
-                                <input type="hidden" value="<?php echo $article->resume ?>" name="resume">
-                                <input type="hidden" name="action" value="pageedit">
+                                <input type="text" value="<?php echo $article->titre ?>" name="titre">
+                                <input type="text" value="<?php echo $article->resume ?>" name="resume">
+                                <input type="hidden" name="action" value="editer">
                             </form>
                         </div>
                         <div class="formconnection">

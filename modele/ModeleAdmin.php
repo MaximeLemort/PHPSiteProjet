@@ -61,7 +61,7 @@ class ModeleAdmin
             $adm->connectionAdmin($logSan, $passwdSan);
             $logged=true;
             $_SESSION['role']='admin';
-            //inc_nb_connections();
+            $this->inc_nb_connections();
         } catch (PDOException $e)
         {
             $TMessage[]=$e->getMessage();
@@ -84,7 +84,7 @@ class ModeleAdmin
 
     function inc_nb_connections(){
         if(isset($_COOKIE['nbCo'])){
-            $i=sanitize::sanitizeChaine($_COOKIE['nbCo'], 'nbCo');
+            $i=$_COOKIE['nbCo'];
             $i++;
             setcookie('nbCo', $i, 365*24*3600);
         }

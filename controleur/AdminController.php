@@ -19,8 +19,6 @@ class AdminController
         try {
             echo '<br>';
             $action=$_REQUEST['action'];
-            var_dump($action);
-            echo "<- Action de admincontroller";
             switch($action) {
                 case NULL:
                     require('../vue/connection.php');
@@ -129,14 +127,6 @@ class AdminController
 
     function Deconnecter() {
         global $rep, $vues;
-        $_SESSION = array();
-        if (ini_get("session.use_cookies")) {
-            $params = session_get_cookie_params();
-            setcookie(session_name(), '', time() - 42000,
-                $params["path"], $params["domain"],
-                $params["secure"], $params["httponly"]
-            );
-        }
         session_abort();
         session_destroy();
         require $rep.$vues['accueil'];

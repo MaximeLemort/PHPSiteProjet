@@ -22,6 +22,10 @@
                             </form>
                         </ul>
                     </td>
+                    <td>
+                        <?php if(isset($_COOKIE['nbCo']))
+                            echo $_COOKIE['nbCo']; ?>
+                    </td>
                 </tr>
             </table>
             <?php if($_SESSION['role']=='admin')

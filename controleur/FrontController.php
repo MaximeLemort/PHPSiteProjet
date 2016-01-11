@@ -11,7 +11,6 @@ class FrontController
             $ma=new ModeleAdmin();
             $a=$ma->isAdmin();
             $action = $_POST['action'];
-            echo '<- Action du frontcontroller'.var_dump($action);
             $action=sanitize::sanitizeChaine($action, 'action');
             if(in_array($action, $listeActionAdmin)){
                 new AdminController();
