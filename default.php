@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="vue/stylesheet/bootstrap.css"/>
-        <title>Ceci est un début de blog</title>
+        <title>Blog</title>
     </head>
     <body class="pagebackground">
         <header>
@@ -24,7 +24,8 @@
                     </td>
                     <td>
                         <?php if(isset($_COOKIE['nbCo']))
-                            echo $_COOKIE['nbCo']; ?>
+                            echo $_COOKIE['nbCo'];
+                        ?>
                     </td>
                 </tr>
             </table>

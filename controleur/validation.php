@@ -39,13 +39,13 @@ class validation
                 case 'titre' :
                     if(isset($chaine)) {
                         $chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
-                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9&#-_+=]{1,100}$/")))==false?false:true;
+                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9&#-_+= ]{1,100}$/")))==false?false:true;
                     }
                     break;
                 case 'resume' :
                     if(isset($chaine)) {
                         $chaine=filter_var($chaine, FILTER_SANITIZE_STRING);
-                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9&#-_+=]{1,500}$/")))==false?false:true;
+                        return filter_var($chaine, FILTER_VALIDATE_REGEXP, array('options'=>array('regexp'=>"/^[a-zA-Z0-9&#-_+=\r\n ]{1,500}$/")))==false?false:true;
                     }
                     break;
                 case 'dateParution' :

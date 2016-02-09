@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="stylesheet/bootstrap.css"/>
-        <title>Ceci est un début de blog</title>
+        <title>Blog</title>
     </head>
     <body class="pagebackground">
         <header class="text-center">

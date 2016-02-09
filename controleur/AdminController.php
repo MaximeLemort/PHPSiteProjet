@@ -72,33 +72,23 @@ class AdminController
         $titre=$_POST['titre'];
         $resume=$_POST['resume'];
         $dateParution=date('Y-m-d');
-        //if(validation::validateChaine($id, 'id') && validation::validateChaine($titre, 'titre')
-        //    && validation::validateChaine($resume, 'resume') && validation::validateChaine($dateParution, 'dateParution')) {
+        if(validation::validateChaine($id, 'id') && validation::validateChaine($titre, 'titre')
+            && validation::validateChaine($resume, 'resume') && validation::validateChaine($dateParution, 'dateParution')) {
             $a->addArticle($id, $titre, $resume, $dateParution);
             require ($rep.$vues['conf']);
-        //}
-        //else {
-        //    $TMessage[]="L'ajout a échoué.";
-        //    var_dump($id);
-        //    var_dump($titre);
-        //    var_dump($resume);
-        //    var_dump($dateParution);
-        //    require $rep . $vues['erreur'];
-        //} TODO : résoudre bug validation
+        }
+        else {
+            $TMessage[] = "L'ajout a échoué.";
+            require $rep . $vues['erreur'];
+        }
     }
 
     function Delete() {
         global $rep, $vues;
         $a=new MdlArticle();
         $id=$_POST['id'];
-        //if(validation::validateChaine($id, '$id')) {
-            $a->deleteArticle($id);
-            require ($rep.$vues['conf']);
-        //}
-        //else {
-        //    $TMessage[]="La suppression a échouée.";
-        //    require $rep . $vues['erreur'];
-        //} TODO : Résoudre bug validation
+        $a->deleteArticle($id);
+        require ($rep.$vues['conf']);
     }
 
     function Edit() {
@@ -107,28 +97,30 @@ class AdminController
         $id=$_POST['id'];
         $titre=$_POST['titre'];
         $resume=$_POST['resume'];
-        //if(validation::validateChaine($id, 'id') && validation::validateChaine($titre, 'titre')
-        //    && validation::validateChaine($resume, 'resume')) {
+        if(validation::validateChaine($id, 'id') && validation::validateChaine($titre, 'titre')
+            && validation::validateChaine($resume, 'resume')) {
             $a->editArticle($id, $titre, $resume);
             require ($rep.$vues['conf']);
-        //}
-        //else {
-        //    $TMessage[]="La modification a échouée.";
-        //    require $rep . $vues['erreur'];
-        //} TODO : Résoudre bug validation
+        }
+        else {
+            $TMessage[]="La modification a échouée.";
+            require $rep . $vues['erreur'];
+        }
     }
 
     function Connecter() {
         global $rep, $vues;
         $ma=new ModeleAdmin();
         $ma->Connecter();
+        $ma->inc_nb_connections();
         require $rep.$vues['admin'];
     }
 
     function Deconnecter() {
-        global $rep, $vues;
+        global $rep, $vues, $logged;
         session_abort();
         session_destroy();
+        $logged=false;
         require $rep.$vues['accueil'];
     }
 }

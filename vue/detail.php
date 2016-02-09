@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="vue/stylesheet/bootstrap.css"/>
-    <title>Ceci est un début de blog</title>
+    <title>Blog</title>
 </head>
     <body class="pagebackground">
     <header>
@@ -28,19 +28,23 @@
             <?php
             if(isset($article)) {
                 foreach($article as $value) {
-                    echo $article->titre . "<br>" . $article->resume . "<br>" . $article->dateParution . "<br>";
+                    echo $article->id . " : " . $article->titre . "<br>" . $article->resume . "<br>" . $article->dateParution . "<br>";
 
                     if ($_SESSION['role']=='admin') {
                         ?>
                         <div class="formconnection">
                             <form method="post">
-                                <input type="submit" value="editer">
+
                                 <input type="hidden" value="<?php echo $article->id ?>" name="id">
                                 <input type="text" value="<?php echo $article->titre ?>" name="titre">
-                                <input type="text" value="<?php echo $article->resume ?>" name="resume">
+                                <br>
+                                <textarea name="resume" value="resume"></textarea>
+                                <br>
+                                <input type="submit" value="editer">
                                 <input type="hidden" name="action" value="editer">
                             </form>
                         </div>
+                        <br><br><br>
                         <div class="formconnection">
                             <form method="post">
                                 <input type="submit" value="supprimer">

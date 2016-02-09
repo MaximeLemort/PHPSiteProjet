@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="vue/stylesheet/bootstrap.css"/>
-    <title>Ceci est un début de blog</title>
+    <title>Blog</title>
 </head>
 <body class="pagebackground">
 <header>
@@ -26,19 +26,34 @@
             else{?>
                 <h1>Formulaire d'ajout d'article</h1>
                 <div class="formconnection">
-                    <form method="post" >
-                        <input type="text" name="id" value="id">
-                        <input type="text" name="titre" value="titre">
+                    <form id="ajArticle" >
+                        <input type="text" name="id" value="id" id="id">
+                        <input type="text" name="titre" value="titre" id="titre">
                         <br>
-                        <textarea name="resume" value="resume"></textarea>
+                        <textarea name="resume" value="resume" id="resume"></textarea>
                         <br>
-                        <input type="hidden" name="action" value="ajouter">
+                        <input type="hidden" name="action" value="ajouter" id="action">
                         <input type="submit" value="Ajouter">
                     </form>
                 </div>
-
+                <span id="spanResultat"></span>
+                <script>
+                    function afficheDonnes(){
+                        var id=$("#id").val();
+                        var titre=$("#titre").val();
+                        var resume=$("#resume").val();
+                        
+                        if(!id || !titre || !resume|| id="id" || titre=="titre" || resume=="resume"){
+                            alert("Erreur saisie de formulaire");
+                        }else{
+                            $("#spanResultat").html("<em>Id: </em>"+id+"<em>Titre: </em>"+titre+"<em>Resume: </em>"+resume)
+                        }
+                    }
+                    
+                    $("#ajArticle").submit(afficheDonnes);
+                </script>
                 <div class="formconnection">
-                    <form method="post">
+                    <form  method="post">
                         <input type="submit" value="Deconnexion">
                         <input type="hidden" value="deconnecter">
                     </form>

@@ -6,8 +6,7 @@
  * and open the template in the editor.
  */
 
-//include_once '../config/config.php'; //ne marche pas...?
-include_once 'config/config.php'; //n'est pas supposé marcher.
+include_once 'config/config.php';
 
 /**
  * Description of Article

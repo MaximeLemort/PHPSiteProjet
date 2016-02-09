@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="vue/stylesheet/bootstrap.css"/>
-        <title>Ceci est un début de blog</title>
+        <title>Blog</title>
     </head>
     <body class="pagebackground">
         <header>
@@ -20,41 +20,45 @@
                     <?php if($_SESSION['role']=='admin')
                     {
                     ?>
-
-                    <div class="formconnection">
-                        <form method="post" >
-                            <input type="submit" value="administration">
-                            <input type="hidden" name="action" value="admin">
-                        </form>
-                    </div>
+                    <tr>
+                        <td>
+                            <div class="formconnection">
+                                <form method="post" >
+                                    <input type="submit" value="administration">
+                                    <input type="hidden" name="action" value="admin">
+                                </form>
+                            </div>
+                        </td>
 
                     <?php } else{?>
+                    <tr>
+                        <td>
+                            <div class="formconnection">
+                                <strong>Veuillez vous connecter</strong>
+                                <form method="post">
+                                    <input type="text" name="login" id="login"/>
+                                    <input type="password" name="password" id="password"/>
+                                    <input type="hidden" name="action" value="connecter"/> <!-- action, refere au FrontController -->
+                                    <input type="submit" name="submit" value="Login" />
+                                </form>
+                            </div>
+                        </td>
 
-                    <div class="formconnection">
-                        <strong>Veuillez vous connecter</strong>
-                        <form method="post">
-                            <input type="text" name="login" id="login"/>
-                            <input type="password" name="password" id="password"/>
-                            <input type="hidden" name="action" value="connecter"/> <!-- action, refere au FrontController -->
-                            <input type="submit" name="submit" value="Login" />
-                        </form>
-                    </div>
 
 
                     <?php }?>
                     <td>
                         <?php if(isset($_COOKIE['nbCo']))
-                            echo $_COOKIE['nbCo']; ?>
+                                    echo $_COOKIE['nbCo'];
+                        ?>
                     </td>
+                    </tr>
                     </table>
                     </header>
 
                     <div>
                         <?php
                         try {
-                            //$_SESSION['role']='admin';
-                            //$_SESSION['login']='malemort';
-                            //$_SESSION['mdp']='Curser63';
                             foreach ($tabArticles as $value) {
                                 if(strlen($value->resume)>100)
                                 {
